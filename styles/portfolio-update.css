@@ -1,26 +1,30 @@
-/* Preserve the original portfolio theme while making demos readable and responsive. */
+/* Shared 25/75 card layout, matching the original portfolio proportions. */
 html { scroll-behavior: smooth; }
 section[id] { scroll-margin-top: 78px; }
 .hero-focus { display: block; font-size: 12px; font-weight: 400; margin-top: 8px; line-height: 1.7; }
 .skills strong { display: block; color: #2b6944; margin-bottom: 5px; }
 .skills p { margin-bottom: 20px; }
 .portfolio-card { overflow: hidden; }
-.portfolio-card .row { margin: 0; }
+.portfolio-card > .row { margin: 0; }
+.portfolio-card > .row > .col-md-9 { padding: 0; }
 .portfolio-card .card-body { padding: 28px; }
-.portfolio-card h3 { line-height: 1.5; font-weight: 600; }
+.portfolio-card .h5 { font-size: 20px; line-height: 1.45; font-weight: 500; margin: 0 0 14px; }
 .portfolio-card li { margin-bottom: 9px; }
 .portfolio-card ul { padding-left: 21px; }
 .tools { font-size: 12px; color: #4b5e51; line-height: 1.7; }
-.demo-panel { background: #378c3f; color: white; padding: 24px 16px; display: flex; flex-direction: column; justify-content: center; }
+.demo-panel { background: #378c3f; color: white; padding: 24px 20px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
 .demo { margin: 0; width: 100%; }
-.demo video { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: contain; background: #102219; border-radius: 5px; }
-.demo figcaption { font-size: 10px; line-height: 1.6; margin: 8px 0; color: white; }
-.demo figcaption a { color: white; text-decoration: underline; }
-.motion-toggle { background: #ffffff; color: #20562a; border: 0; border-radius: 3px; font: inherit; font-size: 10px; padding: 5px 9px; margin-top: 8px; cursor: pointer; }
-.motion-toggle:focus-visible, a:focus-visible { outline: 3px solid #e7b43d; outline-offset: 3px; }
-.experience-date { text-align: center; font-size: 12px; margin: 20px 0 0; }
-.cc-experience-header .demo { text-align: left; }
-.cc-experience-header { height: auto; min-height: 200px; }
+.demo video, .demo-panel > img { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: contain; background: #102219; border-radius: 5px; }
+.media-credit { font-size: 11px; line-height: 1.6; margin: 14px 0 0; color: #637167; }
+.media-credit a { color: #286d32; text-decoration: underline; white-space: nowrap; }
+a:focus-visible { outline: 3px solid #e7b43d; outline-offset: 3px; }
+.experience-date { text-align: center; font-size: 12px; line-height: 1.7; margin: 18px 0 0; }
 .card-links .btn { margin-right: 8px; }
-@media (max-width: 767px) { .demo-panel { padding: 20px; } .demo video { max-height: 300px; } .portfolio-card .card-body { padding: 22px; } .hero-focus { font-size: 10px; } .page-header .content-center { margin-top: 22px; } }
+@media (max-width: 767px) {
+  .demo-panel { padding: 20px; align-items: center; }
+  .demo, .demo-panel > img { max-width: 360px; }
+  .portfolio-card .card-body { padding: 22px; }
+  .hero-focus { font-size: 10px; }
+  .page-header .content-center { margin-top: 22px; }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

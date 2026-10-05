@@ -1,16 +1,13 @@
-/* GIF-like demo loops, with user control and reduced-motion support. */
-document.querySelectorAll('.demo').forEach(function (demo) {
-  var video = demo.querySelector('video');
-  var button = demo.querySelector('button');
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  function label() { button.textContent = video.paused ? 'Play animation' : 'Pause animation'; button.setAttribute('aria-label', button.textContent + ': ' + video.getAttribute('aria-label')); }
-  if (reduceMotion.matches) { video.autoplay = false; video.pause(); }
-  button.addEventListener('click', function () {
-    if (video.paused) { video.play().catch(function () { video.controls = true; }); }
-    else { video.pause(); }
-  });
-  video.addEventListener('play', label);
-  video.addEventListener('pause', label);
-  video.addEventListener('error', function () { button.textContent = 'View source below'; video.controls = true; });
-  label();
-});
+/* Silent GIF-like playback. Respect the visitor's reduced-motion preference. */
+(function () {
+  var preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function updateMotion() {
+    document.querySelectorAll('.demo video').forEach(function (video) {
+      video.autoplay = !preference.matches;
+      if (preference.matches) video.pause();
+      else video.play().catch(function () { /* Preserve the poster if autoplay is unavailable. */ });
+    });
+  }
+  updateMotion();
+  if (preference.addEventListener) preference.addEventListener('change', updateMotion);
+})();
