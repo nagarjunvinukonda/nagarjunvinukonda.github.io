@@ -40,53 +40,6 @@ def scene(label):
  d.text((22*S,338*S),'SCRIPTED SIMULATION',font=ImageFont.truetype(FONT,9*S),fill=(144,163,175))
  return im,d
 
-def obstacles(t):
- return [(2.35*math.cos(2*math.pi*t/12+.7),2.35*math.sin(2*math.pi*t/12+.7),.38),
-         (2.4*math.sin(2*math.pi*t/6),.9,.42),(-1.25,2.8*math.sin(2*math.pi*t/6+1),.38)]
-
-def navigation():
- # Smooth reference path bends outward as moving obstacles approach.
- frames=[]; trajectory=[]; clearances=[]
- for i in range(240):
-  t=i/20; a=2*math.pi*t/12; obs=obstacles(t)
-  r=2.45
-  for ox,oy,orr in obs:
-   oa=math.atan2(oy,ox); delta=math.atan2(math.sin(a-oa),math.cos(a-oa))
-   r=max(r,math.hypot(ox,oy)+.85*math.exp(-(delta/.5)**2))
-  x,y=r*math.cos(a),r*math.sin(a)
-  clearances.append(min(math.hypot(x-ox,y-oy)-rr-.28 for ox,oy,rr in obs))
-  trajectory.append((x,y,.025))
-  im,d=scene('DYNAMIC OBSTACLE AVOIDANCE')
-  box(d,0,-4.1,0,9.1,.13,.38,(99,116,129));box(d,-4.5,0,0,.13,8.2,.38,(99,116,129))
-  box(d,0,0,0,1.2,1.1,.62,(112,132,151))
-  if len(trajectory)>1: line(d,trajectory[-75:],(77,190,179),2)
-  # Lidar rays stop at obstacles or the arena boundary.
-  for th in np.linspace(0,2*math.pi,44,endpoint=False):
-   dist=1.75
-   for q in np.arange(.32,1.76,.06):
-    px,py=x+q*math.cos(th),y+q*math.sin(th)
-    if abs(px)>4.4 or abs(py)>3.95 or (abs(px)<.63 and abs(py)<.58) or any(math.hypot(px-ox,py-oy)<rr for ox,oy,rr in obs): dist=q;break
-   line(d,[(x,y,.6),(x+dist*math.cos(th),y+dist*math.sin(th),.05)],(58,115,114),.6)
-  objects=[('ob',ox,oy,rr) for ox,oy,rr in obs]+[('bot',x,y,.3)]
-  for kind,ox,oy,rr in sorted(objects,key=lambda o:13*o[1]+21*o[2]):
-   disk(d,ox+.1,oy+.1,rr*1.25,.015,(34,45,54))
-   if kind=='ob':
-    ring(d,ox,oy,rr+.13,.02,(220,149,73),1)
-    cylinder(d,ox,oy,rr,0,.77,(226,155,69))
-    cylinder(d,ox,oy,rr+.009,.55,.10,(245,220,166))
-   else:
-    for side in [-1,1]:
-     wx,wy=x+side*.32*math.cos(a),y+side*.32*math.sin(a)
-     cylinder(d,wx,wy,.14,.02,.28,(25,30,37))
-    cylinder(d,x,y,.32,.16,.15,(220,228,229))
-    for dx,dy in [(-.18,-.16),(.18,-.16),(.18,.16),(-.18,.16)]: line(d,[(x+dx,y+dy,.25),(x+dx,y+dy,.52)],(193,205,211),2)
-    cylinder(d,x,y,.3,.49,.08,(225,231,233));cylinder(d,x,y,.125,.57,.16,(51,59,69))
-    disk(d,x,y,.09,.735,(231,184,54))
-    line(d,[(x,y,.59),(x-.24*math.sin(a),y+.24*math.cos(a),.59)],(43,180,213),4)
-  frames.append(im.resize((W,H),Image.Resampling.LANCZOS))
- print('Minimum illustrated obstacle clearance:',round(min(clearances),3))
- return frames
-
 def t_shape(x,y):
  return [(x+u,y+v,.08) for u,v in [(-.52,-.45),(.52,-.45),(.52,-.16),(.15,-.16),(.15,.58),(-.15,.58),(-.15,-.16),(-.52,-.16)]]
 def policy():
@@ -138,4 +91,6 @@ def save(name,frames):
  frames[35].save(OUT/(name+'.jpg'),quality=90)
  print(name,len(frames),'frames')
 if __name__=='__main__':
- save('dqn-obstacles',navigation());save('policy-eval',policy())
+ save('policy-eval',policy())
+ from turtlebot_navigation import render
+ render()

@@ -9,7 +9,7 @@ The portfolio uses short, silent MP4 loops for GIF-like playback. Company and fr
 | forterra.mp4 | https://www.forterra.com/ | 2–8 seconds of the official Tested_1 vehicle footage |
 | pick-place.mp4 | https://huggingface.co/blog/smolvla | Complete uncropped 816×360 task-variation montage; reference footage, not a personal policy rollout |
 | policy-eval.mp4 | ../tools/render_portfolio_demos.py | Original scripted robot-arm pushing illustration; not a recorded SmolVLA rollout |
-| dqn-obstacles.mp4 | ../tools/render_portfolio_demos.py | Original scripted TurtleBot-style dynamic-obstacle scene with LiDAR rays; not a recorded DQN/Gazebo rollout |
+| dqn-obstacles.mp4, dqn-obstacles.gif | ../tools/turtlebot_navigation.py | Collision-checked TurtleBot-style navigation to a goal, moving discs with collision responses, a solid fixed cube, and LiDAR rays; illustrative planner simulation, not a recorded DQN/Gazebo rollout. Clearance checks are recorded in dqn-validation.json. |
 | mimic.mp4 | https://mimicgen.github.io/resources/new_robots/panda.mp4 | Public Franka manipulation simulation; reference footage |
 | bci.mp4 | ../images/BCI.gif | Original portfolio BCI project, compressed |
 | turtlebot.mp4 | ../images/PID_control.gif | Original portfolio PID project; used only on the PID card |

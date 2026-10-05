@@ -83,7 +83,7 @@
 </div></div></section><section class="section" id="projects"><div class="container cc-experience"><h2 class="h4 text-center mb-4 title">Projects</h2><article class="card portfolio-card"><div class="row"><div class="col-md-3 demo-panel"><figure class="demo"><video aria-label="Animated robot arm pushing a T-shaped block into a target pose" autoplay="" loop="" muted="" playsinline="" poster="media/policy-eval.jpg" preload="metadata"><source src="media/policy-eval.mp4" type="video/mp4"/></video></figure><p class="experience-date">Robot Learning</p></div><div class="col-md-9"><div class="card-body"><h3 class="h5">VLA Policy Training &amp; Evaluation — SmolVLA</h3><p class="tools"><strong>Tools:</strong> LeRobot, PyTorch, W&amp;B, Isaac Sim, MuJoCo</p><ul><li>Fine-tuned SmolVLA across PushT and LIBERO Spatial’s 10-task manipulation suite; monitored flow-matching loss, gradient norms, and closed-loop policy rollouts with W&amp;B.</li><li>Built evaluation workflows across CALVIN, LIBERO, and RoboCasa, integrating policy inference, structured logging, and rollout analysis.</li><li>Enabled local training and evaluation within 8GB VRAM through batch-size tuning and memory configuration; implemented asynchronous inference and action-chunk aggregation to reduce execution jitter.</li></ul><div class="card-links"><a class="btn btn-primary" href="https://huggingface.co/blog/smolvla">SmolVLA Framework</a></div><p class="media-credit">Illustrative policy-evaluation animation: robot pushing a T-shaped block to a target. Scripted visualization, not a recorded SmolVLA rollout. <a download="" href="media/policy-eval.gif">GIF ↗</a></p></div></div></div></article><article class="card portfolio-card"><div class="row"><div class="col-md-3 demo-panel"><figure class="demo"><video aria-label="Robot grasping and moving objects in a manipulation demonstration" autoplay="" loop="" muted="" playsinline="" poster="media/pick-place.jpg?v=full-frame" preload="metadata"><source src="media/pick-place.mp4?v=full-frame" type="video/mp4"/></video></figure><p class="experience-date">Policy Evaluation &amp; Debugging</p></div><div class="col-md-9"><div class="card-body"><h3 class="h5">SmolVLA Pick-and-Place &amp; Sim-to-Real Debugging</h3><p class="tools"><strong>Tools:</strong> PyTorch, LeRobot, Sim-to-Real Evaluation</p><ul><li>Evaluated pick-and-place policies on cubes, cylinders, tetrahedra, and octahedra; diagnosed orientation-sensitive alignment and insertion failures on harder shapes.</li><li>Fine-tuned and debugged with targeted demonstrations and recovery data, adjusted observations for camera mismatch, and shortened action execution horizons for more frequent replanning near insertion.</li></ul><div class="card-links"></div><p class="media-credit">SmolVLA reference manipulation demo · not my shape-sorting rollout. <a href="https://huggingface.co/blog/smolvla" rel="noopener" target="_blank">Source ↗</a></p></div></div></div></article><article class="card portfolio-card"><div class="row"><div class="col-md-3 demo-panel"><figure class="demo"><video aria-label="Simulated robot arm executing a manipulation task" autoplay="" loop="" muted="" playsinline="" poster="media/mimic.jpg" preload="metadata"><source src="media/mimic.mp4" type="video/mp4"/></video></figure><p class="experience-date">Demonstrations → Policy Learning</p></div><div class="col-md-9"><div class="card-body"><h3 class="h5">Isaac Sim Franka: Teleoperation → Mimic → SmolVLA</h3><p class="tools"><strong>Tools:</strong> Isaac Sim, Isaac Lab Mimic, LeRobot, PyTorch, HDF5</p><ul><li>Teleoperated a 7-DOF Franka Panda in Isaac Sim using keyboard SE(3) control to collect cube-to-bin demonstrations through Isaac Lab’s record_demos pipeline.</li><li>Expanded demonstrations with Mimic’s subtask-aware replay and pose randomization, converted HDF5 data to LeRobot format, and fine-tuned SmolVLA on an L40S GPU.</li><li>Closed the loop by evaluating the checkpoint with policy inference back in the same simulation scene.</li></ul><div class="card-links"><a class="btn btn-primary" href="https://isaac-sim.github.io/IsaacLab/main/source/overview/imitation-learning/teleop_imitation.html">Isaac Lab Mimic</a></div><p class="media-credit">MimicGen reference simulation · not my Isaac Sim rollout. <a href="https://mimicgen.github.io/" rel="noopener" target="_blank">Source ↗</a></p></div></div></div></article><div class="card portfolio-card">
 <div class="row">
 <div class="col-md-3 demo-panel">
-<figure class="demo"><video aria-label="TurtleBot-style robot steering around continuously moving obstacles in a simulated arena" autoplay="" loop="" muted="" playsinline="" poster="media/dqn-obstacles.jpg" preload="metadata"><source src="media/dqn-obstacles.mp4" type="video/mp4"/></video></figure>
+<figure class="demo"><video aria-label="TurtleBot-style robot steering around continuously moving obstacles in a simulated arena" autoplay="" loop="" muted="" playsinline="" poster="media/dqn-obstacles.jpg?v=collision-checked" preload="metadata"><source src="media/dqn-obstacles.mp4?v=collision-checked" type="video/mp4"/></video></figure>
 <p class="experience-date">DEC 2020 - JAN 2021</p>
 </div>
 <div class="col-md-9">
@@ -92,7 +92,7 @@
 <p class="mb-0"><strong>Tools:</strong> Python, PyTorch, CUDA </p>
 <ul><li>Implemented DQN and Dueling DQN in PyTorch with experience replay and target networks for navigation with LiDAR observations.</li><li>Designed reward shaping around goal heading, distance, obstacle proximity, and goal/collision outcomes; trained in Gazebo and deployed the learned policy to a physical TurtleBot.</li></ul>
 <a class="btn btn-primary" href="https://github.com/nagarjunvinukonda/Turtlebot-Navigation-using-DQN/tree/master">Code</a>
-<p class="media-credit">Illustrative TurtleBot-style simulation with moving obstacles; scripted visualization, not a recorded DQN or Gazebo rollout. <a download="" href="media/dqn-obstacles.gif">GIF ↗</a></p></div>
+<p class="media-credit">Illustrative TurtleBot-style simulation with moving obstacles; scripted visualization, not a recorded DQN or Gazebo rollout. <a download="" href="media/dqn-obstacles.gif?v=collision-checked">GIF ↗</a></p></div>
 </div>
 </div>
 </div><div class="card portfolio-card">
@@ -486,7 +486,44 @@
 </div>
 </div>
 </div>
-</div></div></section><section class="section" id="contact"><div class="container"><div class="card"><div class="card-body text-center"><h2 class="h4 title">Get in Touch</h2><p>San Francisco, California, USA</p><p><a href="mailto:vinukondanagarjun4@gmail.com">vinukondanagarjun4@gmail.com</a></p><a class="btn btn-primary" href="https://www.linkedin.com/in/nagarjun-vinukonda/">LinkedIn</a> <a class="btn btn-primary" href="https://github.com/nagarjunvinukonda">GitHub</a></div></div></div></section></main><footer class="footer">
+</div></div></section><section class="section" id="contact">
+<div class="cc-contact-information" style="background-image: url('images/final_image.jpg');">
+<div class="container">
+<div class="cc-contact">
+<div class="row">
+<div class="col-md-9">
+<div class="card mb-0">
+<div class="h4 text-center title">Contact Me</div>
+<div class="row">
+<div class="col-md-6">
+<div class="card-body">
+
+<div class="p pb-3"><strong> Get in Touch! </strong></div>
+<p class="mb-0"><strong>Address</strong></p>
+<p class="pb-2">San Francisco, California, USA</p>
+<div class="row mb-3">
+<div class="col">
+</div>
+</div>
+
+</div>
+</div>
+<div class="col-md-6">
+<div class="card-body">
+<p class="mb-0"><strong>Phone</strong></p>
+<p class="pb-2"><a href="tel:+15083743112">+1-(508)-374-3112</a></p>
+<p class="mb-0"><strong>Email</strong></p>
+<p><a href="mailto:vinukondanagarjun4@gmail.com">vinukondanagarjun4@gmail.com</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></main><footer class="footer">
 <div class="h4 title text-center">Nagarjun Vinukonda</div>
 <div class="text-center text-muted">
 <p>© Creative CV. All rights reserved.<br/>Design - <a class="credit" href="https://templateflip.com" target="_blank">TemplateFlip</a></p>

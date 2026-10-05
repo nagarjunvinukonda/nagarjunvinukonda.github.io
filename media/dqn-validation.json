@@ -1,0 +1,10 @@
+{
+  "sample_rate_hz": 200,
+  "robot_moving_obstacle_clearance": 0.2532206470123285,
+  "robot_cube_clearance": 0.28024719973114104,
+  "moving_obstacle_pair_clearance": 0.16000000000000025,
+  "moving_obstacle_cube_clearance": 0.15999999999999992,
+  "robot_wall_clearance": 0.6729963839016646,
+  "goal_error": 9.930136612989092e-16,
+  "duration_seconds": 15.5
+}
