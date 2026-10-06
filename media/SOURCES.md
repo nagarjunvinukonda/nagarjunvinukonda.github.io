@@ -13,6 +13,6 @@ The portfolio uses short, silent MP4 loops for GIF-like playback. Company and fr
 | mimic.mp4 | https://mimicgen.github.io/resources/new_robots/panda.mp4 | Public Franka manipulation simulation; reference footage |
 | bci.mp4 | ../images/BCI.gif | Original portfolio BCI project, compressed |
 | turtlebot.mp4 | ../images/PID_control.gif | Original portfolio PID project; used only on the PID card |
-| driving.mp4 | ../images/Behaviour_planning.gif | Original portfolio behavior-planning animation, credited as related project footage on the behavior-cloning card |
+| driving-split.svg | Generated in-repo | Illustrative synchronized front-camera + BEV round-road driving animation for the Behavior Cloning card; not a recorded CARLA rollout |
 
 JPG files are the corresponding first-frame fallbacks. Silent autoplay loops respect reduced-motion preferences through scripts/portfolio-media.js. All media is contained within equal 16:10 frames, without cropping.
