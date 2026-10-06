@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t d">
+<title id="t">Synchronized autonomous-driving front camera and BEV animation</title>
+<desc id="d">Illustrative round-road scene with a front-camera view on the left and bird's-eye view on the right.</desc>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#77b7d8"/><stop offset="1" stop-color="#d9edf5"/></linearGradient>
+  <linearGradient id="road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#56606b"/><stop offset="1" stop-color="#232a31"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity=".25"/></filter>
+  <path id="trackPath" d="M 758 124 A 150 150 0 1 1 757.9 124"/>
+  <style>
+    .dash{stroke-dasharray:22 22;animation:dash 1.15s linear infinite}
+    .dash2{stroke-dasharray:11 16;animation:dash 1.15s linear infinite}
+    .pulse{animation:pulse 1.6s ease-in-out infinite}
+    @keyframes dash{to{stroke-dashoffset:-88}}
+    @keyframes pulse{50%{opacity:.38}}
+  </style>
+</defs>
+
+<rect width="960" height="540" rx="18" fill="#101820"/>
+<rect x="18" y="18" width="570" height="504" rx="14" fill="url(#sky)"/>
+<rect x="606" y="18" width="336" height="504" rx="14" fill="#182229"/>
+<text x="42" y="52" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#fff">FRONT CAMERA</text>
+<text x="630" y="52" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#fff">BEV</text>
+<text x="42" y="505" font-family="Arial,sans-serif" font-size="15" fill="#d8eef7">ILLUSTRATIVE SIMULATION • SYNCHRONIZED VIEWS</text>
+
+<!-- Front camera -->
+<rect x="18" y="242" width="570" height="280" fill="#6f8d65"/>
+<path d="M112 522 C210 424 242 342 274 244 L434 244 C468 342 508 424 584 522 Z" fill="url(#road)"/>
+<path d="M146 522 C232 428 267 346 296 244" fill="none" stroke="#f5f5f5" stroke-width="8"/>
+<path d="M552 522 C480 428 443 346 414 244" fill="none" stroke="#f5f5f5" stroke-width="8"/>
+<path class="dash" d="M350 522 C354 424 356 334 356 244" fill="none" stroke="#f7d154" stroke-width="8"/>
+<path class="dash2" d="M264 522 C309 421 330 330 340 244" fill="none" stroke="#f5f5f5" stroke-width="4" opacity=".8"/>
+<path class="dash2" d="M444 522 C400 421 380 330 370 244" fill="none" stroke="#f5f5f5" stroke-width="4" opacity=".8"/>
+<circle cx="516" cy="164" r="31" fill="#f8d46a" opacity=".9"/>
+<g fill="#4b7650"><circle cx="90" cy="240" r="42"/><circle cx="132" cy="225" r="52"/><circle cx="520" cy="226" r="54"/></g>
+<g filter="url(#shadow)">
+  <rect x="315" y="300" width="82" height="52" rx="9" fill="#d95e4f">
+    <animate attributeName="x" values="302;326;302" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="328" y="309" width="56" height="18" rx="4" fill="#a9d4e6">
+    <animate attributeName="x" values="315;339;315" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  <circle cx="327" cy="351" r="8" fill="#111"><animate attributeName="cx" values="314;338;314" dur="8s" repeatCount="indefinite"/></circle>
+  <circle cx="385" cy="351" r="8" fill="#111"><animate attributeName="cx" values="372;396;372" dur="8s" repeatCount="indefinite"/></circle>
+</g>
+<path d="M278 458 C320 440 389 440 431 458 L449 508 H260 Z" fill="#dfe5ea" stroke="#222" stroke-width="3"/>
+<rect x="310" y="462" width="92" height="20" rx="5" fill="#9dc4d6"/>
+<circle cx="294" cy="506" r="12" fill="#111"/><circle cx="416" cy="506" r="12" fill="#111"/>
+<g transform="translate(44 78)"><rect width="168" height="76" rx="9" fill="#0b1720" opacity=".8"/><text x="14" y="26" font-family="Arial" font-size="14" fill="#7ee0a1">POLICY ACTIVE</text><text x="14" y="50" font-family="Arial" font-size="13" fill="#d9eef4">curvature 0.18 • 31 km/h</text></g>
+
+<!-- BEV circular road -->
+<circle cx="774" cy="280" r="166" fill="#647b63"/>
+<circle cx="774" cy="280" r="145" fill="none" stroke="#343b42" stroke-width="72"/>
+<circle cx="774" cy="280" r="145" fill="none" stroke="#f6f6f6" stroke-width="4"/>
+<circle cx="774" cy="280" r="109" fill="none" stroke="#f6f6f6" stroke-width="4"/>
+<circle class="dash" cx="774" cy="280" r="127" fill="none" stroke="#f4d35e" stroke-width="4"/>
+<circle cx="774" cy="280" r="82" fill="#567f59"/>
+<path id="route" d="M758 124 A150 150 0 1 1 757.9 124" fill="none" stroke="#5ce0c5" stroke-width="5" opacity=".45"/>
+<g filter="url(#shadow)">
+  <g>
+    <rect x="-13" y="-24" width="26" height="48" rx="6" fill="#e8edf0" stroke="#111" stroke-width="2"/>
+    <rect x="-9" y="-12" width="18" height="14" rx="3" fill="#9dc4d6"/>
+    <circle cx="-13" cy="-13" r="4" fill="#111"/><circle cx="13" cy="-13" r="4" fill="#111"/><circle cx="-13" cy="13" r="4" fill="#111"/><circle cx="13" cy="13" r="4" fill="#111"/>
+    <animateMotion dur="8s" repeatCount="indefinite" rotate="auto"><mpath href="#trackPath"/></animateMotion>
+  </g>
+  <g>
+    <rect x="-12" y="-22" width="24" height="44" rx="6" fill="#d95e4f" stroke="#111" stroke-width="2"/>
+    <animateMotion dur="8s" begin="-1.8s" repeatCount="indefinite" rotate="auto"><mpath href="#trackPath"/></animateMotion>
+  </g>
+</g>
+<circle class="pulse" cx="774" cy="280" r="205" fill="none" stroke="#5ce0c5" stroke-width="2" opacity=".18"/>
+<g transform="translate(630 446)"><rect width="286" height="52" rx="8" fill="#0b1720" opacity=".9"/><circle cx="18" cy="26" r="6" fill="#5ce0c5"/><text x="34" y="31" font-family="Arial" font-size="14" fill="#d9eef4">SYNC • round-road trajectory</text></g>
+</svg>
