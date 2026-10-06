@@ -28,3 +28,14 @@ a:focus-visible { outline: 3px solid #e7b43d; outline-offset: 3px; }
   .page-header .content-center { margin-top: 22px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Match the original portfolio contact background: centered at the normal content width, never tiled. */
+#contact .cc-contact-information {
+  width: 100%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
