@@ -51,3 +51,9 @@ a:focus-visible { outline: 3px solid #e7b43d; outline-offset: 3px; }
 .skills .row {
   align-items: flex-start;
 }
+
+/* Contact details should use normal black text, matching the original card. */
+#contact a[href^="tel:"],
+#contact a[href^="mailto:"] {
+  color: #111 !important;
+}
