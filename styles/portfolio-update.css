@@ -2,8 +2,6 @@
 html { scroll-behavior: smooth; }
 section[id] { scroll-margin-top: 78px; }
 .hero-focus { display: block; font-size: 12px; font-weight: 400; margin-top: 8px; line-height: 1.7; }
-.skills strong { display: block; color: #2b6944; margin-bottom: 5px; }
-.skills p { margin-bottom: 20px; }
 .portfolio-card { overflow: hidden; }
 .portfolio-card > .row { margin: 0; }
 .portfolio-card > .row > .col-md-9 { padding: 0; }
@@ -38,4 +36,18 @@ a:focus-visible { outline: 3px solid #e7b43d; outline-offset: 3px; }
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+}
+
+/* About section: restore the original justified copy and uppercase black skill labels. */
+.about-copy p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+.skills .skill-label {
+  color: #111;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.skills .row {
+  align-items: flex-start;
 }
