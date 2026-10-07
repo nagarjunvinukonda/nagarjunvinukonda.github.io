@@ -1,3 +1,41 @@
+
+// Preserve the exact position on a browser refresh.
+(function () {
+  var key = 'portfolio-scroll-y';
+  var navEntries = window.performance && performance.getEntriesByType
+    ? performance.getEntriesByType('navigation')
+    : [];
+  var isReload = navEntries.length
+    ? navEntries[0].type === 'reload'
+    : (window.performance && performance.navigation && performance.navigation.type === 1);
+
+  if (isReload && 'scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        sessionStorage.setItem(key, String(window.pageYOffset || document.documentElement.scrollTop || 0));
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  if (isReload) {
+    var saved = parseFloat(sessionStorage.getItem(key));
+    if (!isNaN(saved)) {
+      window.addEventListener('load', function () {
+        window.requestAnimationFrame(function () { window.scrollTo(0, saved); });
+        window.setTimeout(function () { window.scrollTo(0, saved); }, 250);
+      });
+    }
+  }
+})();
+// End refresh-position preservation.
+
 // Add your javascript here
 // Don't forget to add it into respective layouts where this js file is needed
 
